@@ -23,7 +23,7 @@ public class DeleteMemberService {
             .filter(userGroup1 -> userGroup1.getUser().getId() == userId)
             .findFirst()
             .orElseThrow(() -> new IllegalArgumentException("해당 그룹이 없거나, "
-                + "ID=" + userId + "인 사용자가 ID=" + groupId + "인 그룹을 삭제할 권한이 없습니다."));
+                + "ID=" + userId + "인 사용자가 ID=" + groupId + "인 그룹을 탈퇴할 권한이 없습니다."));
         userGroupRepository.deleteById(userGroup.getId());
 
         if (userGroups.stream().count() <= 1) {
